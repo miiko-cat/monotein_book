@@ -6,8 +6,7 @@ const auth = async (req, res, next) => {
         return next()
     }
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbGxvQG1vbm90ZWluLmNvbSIsImlhdCI6MTY4MDc4Mzk0NCwiZXhwIjoxNjgwODY2NzQ0fQ.uOfEdHsiZZgGmJsV93fmhl49-qTtTRINAMjiX99tXuM"
-    // const token = await req.headers.authorization.split(" ")[1]
+    const token = await req.headers.authorization.split(" ")[1]
     if (!token) {
         return res.status(400).json({ message: "トークンがありません" })
     }
