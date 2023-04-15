@@ -16,10 +16,9 @@ const auth = async (req, res, next) => {
         req.body.email = decoded.email
         return next()
     } catch (error) {
-        return res.status(400).json({ 
-            message: "トークンが正しくないので、ログインしてください" ,
-            error: error,
-        })
+        console.log(error)
+        return res.status(400).json({ message: "トークンが正しくないので、ログインしてください" })
+
     }
 }
 
